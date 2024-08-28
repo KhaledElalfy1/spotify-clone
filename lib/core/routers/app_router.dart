@@ -1,10 +1,11 @@
+import 'package:client/features/sign_up/presentation/view/sign_up_view.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
  static Route generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(builder: (_) => Scaffold());
+        return MaterialPageRoute(builder: (_) =>const SignUpView());
       // case '/login':
       //   return MaterialPageRoute(builder: (_) => LoginScreen());
       // case '/register':
