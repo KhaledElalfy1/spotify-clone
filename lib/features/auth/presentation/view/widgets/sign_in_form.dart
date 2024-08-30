@@ -1,26 +1,23 @@
 import 'package:client/core/widgets/custom_text_form_filed.dart';
-import 'package:client/features/sign_up/presentation/controller/sign_up_cubit/sign_up_cubit.dart';
+import 'package:client/features/auth/presentation/controller/sign_in_cubit/sign_in_cubit.dart';
 import 'package:flutter/material.dart';
 
-class SignUpForm extends StatelessWidget {
-  const SignUpForm({
+class SignInForm extends StatelessWidget {
+  const SignInForm({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: SignUpCubit.of(context).formKey,
+      key: SignInCubit.of(context).formKey,
       child: Column(
         children: [
-          CustomTextFormFiled(
-            hintText: 'Name',
-            controller: SignUpCubit.of(context).nameController,
-          ),
+         
           const SizedBox(height: 16),
           CustomTextFormFiled(
             hintText: 'Email',
-            controller: SignUpCubit.of(context).emailController,
+            controller: SignInCubit.of(context).emailController,
           ),
           const SizedBox(height: 16),
           CustomTextFormFiled(
@@ -32,7 +29,7 @@ class SignUpForm extends StatelessWidget {
               return null;
             
             },
-            controller: SignUpCubit.of(context).passwordController,
+            controller: SignInCubit.of(context).passwordController,
             obscureText: true,
           ),
         ],
