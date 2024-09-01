@@ -1,4 +1,4 @@
-import 'package:client/features/sign_up/presentation/controller/sign_up_cubit/sign_up_state.dart';
+import 'package:client/features/auth/presentation/controller/sign_up_cubit/sign_up_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,8 +1,8 @@
 import 'package:client/core/routers/routing.dart';
-import 'package:client/features/sign_in/presentation/controller/sign_in_cubit/sign_in_cubit.dart';
-import 'package:client/features/sign_in/presentation/view/sign_in_view.dart';
-import 'package:client/features/sign_up/presentation/controller/sign_up_cubit/sign_up_cubit.dart';
-import 'package:client/features/sign_up/presentation/view/sign_up_view.dart';
+import 'package:client/features/auth/presentation/controller/sign_in_cubit/sign_in_cubit.dart';
+import 'package:client/features/auth/presentation/view/sign_in_view.dart';
+import 'package:client/features/auth/presentation/controller/sign_up_cubit/sign_up_cubit.dart';
+import 'package:client/features/auth/presentation/view/sign_up_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
