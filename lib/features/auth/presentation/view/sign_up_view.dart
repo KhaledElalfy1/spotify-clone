@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:client/core/helpers/extentions.dart';
+import 'package:client/core/helpers/functions.dart';
 import 'package:client/core/routers/routing.dart';
 import 'package:client/core/utils/app_colors.dart';
 import 'package:client/core/utils/app_fonts.dart';
@@ -41,24 +42,14 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
     ref.listen(authViewModelProvider, (_, next) {
       next?.when(
         data: (data) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(
-                'Signed Up Successfully',
-              ),
-            ),
-          );
+         showSnackBar(context, 'Sign Up Success');
+         
 
           context.pushReplacementNamed(Routing.signIn);
         },
         error: (error, stackTrace) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                '$error',
-              ),
-            ),
-          );
+          showSnackBar(context, error.toString());
+        
         },
         loading: () {},
       );
