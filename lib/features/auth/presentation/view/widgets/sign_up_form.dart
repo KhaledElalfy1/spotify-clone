@@ -1,26 +1,31 @@
 import 'package:client/core/widgets/custom_text_form_filed.dart';
-import 'package:client/features/auth/presentation/controller/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({
     super.key,
+    required this.nameController,
+    required this.emailController,
+    required this.passwordController, required this.formKey,
   });
-
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final GlobalKey<FormState> formKey;
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: SignUpCubit.of(context).formKey,
+      key:formKey,
       child: Column(
         children: [
           CustomTextFormFiled(
             hintText: 'Name',
-            controller: SignUpCubit.of(context).nameController,
+            controller: nameController,
           ),
           const SizedBox(height: 16),
           CustomTextFormFiled(
             hintText: 'Email',
-            controller: SignUpCubit.of(context).emailController,
+            controller: emailController,
           ),
           const SizedBox(height: 16),
           CustomTextFormFiled(
@@ -30,9 +35,8 @@ class SignUpForm extends StatelessWidget {
                 return 'Password must be at least 6 characters';
               }
               return null;
-            
             },
-            controller: SignUpCubit.of(context).passwordController,
+            controller: passwordController,
             obscureText: true,
           ),
         ],
