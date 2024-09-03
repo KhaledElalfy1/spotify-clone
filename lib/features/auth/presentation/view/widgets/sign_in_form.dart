@@ -1,23 +1,23 @@
 import 'package:client/core/widgets/custom_text_form_filed.dart';
-import 'package:client/features/auth/presentation/controller/sign_in_cubit/sign_in_cubit.dart';
 import 'package:flutter/material.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({
-    super.key,
+    super.key, required this.emailController, required this.passwordController, required this.formKey,
   });
-
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
+  final GlobalKey<FormState> formKey;
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: SignInCubit.of(context).formKey,
+      key: formKey,
       child: Column(
         children: [
-         
           const SizedBox(height: 16),
           CustomTextFormFiled(
             hintText: 'Email',
-            controller: SignInCubit.of(context).emailController,
+            controller:emailController,
           ),
           const SizedBox(height: 16),
           CustomTextFormFiled(
@@ -27,9 +27,8 @@ class SignInForm extends StatelessWidget {
                 return 'Password must be at least 6 characters';
               }
               return null;
-            
             },
-            controller: SignInCubit.of(context).passwordController,
+            controller:passwordController,
             obscureText: true,
           ),
         ],

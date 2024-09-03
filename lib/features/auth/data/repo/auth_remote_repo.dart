@@ -7,6 +7,18 @@ import 'package:client/features/auth/data/models/user_sign_in_input_model.dart';
 import 'package:client/features/auth/data/models/user_sign_up_input_model.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:http/http.dart' as http;
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+part 'auth_remote_repo.g.dart';
+
+@riverpod
+AuthRemoteRepo authRemoteRepo(AuthRemoteRepoRef ref) {
+  
+  return AuthRemoteRepo();
+}
+
+
+
+
 
 class AuthRemoteRepo {
   Future<Either<AppFailure, UserModel>> signup(
