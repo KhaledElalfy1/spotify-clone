@@ -12,13 +12,8 @@ part 'auth_remote_repo.g.dart';
 
 @riverpod
 AuthRemoteRepo authRemoteRepo(AuthRemoteRepoRef ref) {
-  
   return AuthRemoteRepo();
 }
-
-
-
-
 
 class AuthRemoteRepo {
   Future<Either<AppFailure, UserModel>> signup(
@@ -36,7 +31,8 @@ class AuthRemoteRepo {
         return left(AppFailure(message: responseBodyMap['details']));
       }
       // log("the response is ${response.body} and the status code is ${response.statusCode}");
-      return right(UserModel.fromMap(responseBodyMap)); // UserModel.fromMap(responseBodyMap)
+      return right(UserModel.fromMap(
+          responseBodyMap)); // UserModel.fromMap(responseBodyMap)
     } catch (e) {
       return left(AppFailure(message: e.toString()));
     }
@@ -54,13 +50,46 @@ class AuthRemoteRepo {
       );
       // log("the response is ${response.body} and the status code is ${response.statusCode}");
       final responseBodyMap = jsonDecode(response.body) as Map<String, dynamic>;
-      
-      if(response.statusCode != 200){
-        return left(AppFailure(message:responseBodyMap['details']));
+
+      if (response.statusCode != 200) {
+        return left(AppFailure(message: responseBodyMap['details']));
       }
-      return right(UserModel.fromMap(responseBodyMap));
+      return right(
+        UserModel.fromMap(responseBodyMap['user']).copyWith(
+          token: responseBodyMap['token'],
+        ),
+      );
     } catch (e) {
       return left(AppFailure(message: e.toString()));
+    }
+  }
+
+  Future<Either<AppFailure, UserModel>> getCurrentUserData(
+      {required String token}) async {
+    try {
+      final response = await http.get(
+          Uri.parse(
+            '${ServerConstant.baseUrl}/auth/',
+          ),
+          headers: {
+            'Content-Type': 'application/json',
+            'x-auth-token': token,
+          });
+      final responseBodyMap = jsonDecode(response.body) as Map<String, dynamic>;
+      if (response.statusCode != 200) {
+        return left(AppFailure(message: responseBodyMap['details']));
+      }
+      return right(
+        UserModel.fromMap(responseBodyMap).copyWith(
+          token: token,
+        ),
+      );
+    } catch (e) {
+      return left(
+        AppFailure(
+          message: e.toString(),
+        ),
+      );
     }
   }
 }

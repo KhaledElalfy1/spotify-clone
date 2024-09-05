@@ -40,14 +40,13 @@ class _SignInViewState extends ConsumerState<SignInView> {
     ref.listen(authViewModelProvider, (_, next) {
       next?.when(
           data: (data) {
-            //TODO: navigate to home
-           
-            showSnackBar(context, 'Sign In Success');
-          
-          }, error: (error, stackTrace) {
+            context.pushNamedAndRemoveUntil(Routing.home,
+                predicate: (route) => false);
+          },
+          error: (error, stackTrace) {
             showSnackBar(context, error.toString());
-          
-          }, loading: () {});
+          },
+          loading: () {});
     });
     return Scaffold(
       appBar: AppBar(),

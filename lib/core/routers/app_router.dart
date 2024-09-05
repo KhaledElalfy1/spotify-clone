@@ -3,6 +3,7 @@ import 'package:client/features/auth/presentation/controller/sign_in_cubit/sign_
 import 'package:client/features/auth/presentation/view/sign_in_view.dart';
 import 'package:client/features/auth/presentation/controller/sign_up_cubit/sign_up_cubit.dart';
 import 'package:client/features/auth/presentation/view/sign_up_view.dart';
+import 'package:client/features/home/view/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,6 +30,9 @@ class AppRouter {
       //   return MaterialPageRoute(builder: (_) => RegisterScreen());
       // case '/profile':
       //   return MaterialPageRoute(builder: (_) => ProfileScreen());
+
+      case Routing.home:
+        return MaterialPageRoute(builder: (_) => const HomePage());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
