@@ -19,7 +19,7 @@ class _AppState extends ConsumerState<App> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: AppRouter.generateRoute,
-      initialRoute: currentUSer == null ? Routing.signUp : Routing.home,
+      initialRoute: currentUSer == null ? Routing.signUp : Routing.uploadSong,
       theme: AppThemes.darkThemeMode,
     );
   }
