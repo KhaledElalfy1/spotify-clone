@@ -96,7 +96,8 @@ class _SignUpViewState extends ConsumerState<SignUpView> {
                       ),
                       TextButton(
                         onPressed: () {
-                          context.pop();
+                          context.pushNamed(Routing.signIn);
+                        
                         },
                         child: Text(
                           'Sign In',

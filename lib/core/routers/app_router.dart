@@ -4,7 +4,7 @@ import 'package:client/features/auth/presentation/view/sign_in_view.dart';
 import 'package:client/features/auth/presentation/controller/sign_up_cubit/sign_up_cubit.dart';
 import 'package:client/features/auth/presentation/view/sign_up_view.dart';
 import 'package:client/features/home/view/pages/home_page.dart';
-import 'package:client/features/upload_song/presentation/view/upload_song_view.dart';
+import 'package:client/features/home/view/pages/upload_song_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
