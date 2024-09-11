@@ -11,6 +11,11 @@ abstract class AppThemes {
       focusedBorder: borderDecoration(),
       errorBorder: borderDecoration(color: AppColors.errorColor),
     ),
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      backgroundColor: AppColors.backgroundColor,
+      // selectedItemColor: AppColors.primaryColor,
+      // unselectedItemColor: AppColors.greyColor,
+    ),
   );
 
   static OutlineInputBorder borderDecoration(

@@ -1,18 +1,57 @@
-
+import 'package:client/core/utils/app_colors.dart';
+import 'package:client/features/home/view/pages/song_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class HomePage extends ConsumerWidget {
+import 'library_page.dart';
+
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return const Scaffold(
+  ConsumerState<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends ConsumerState<HomePage> {
+  int selectedIndex = 0;
+  final List<Widget> _children = const [
+    SongPage(),
+    LibraryPage(),
+  ];
+
+  
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
       // appBar: AppBar(),
-      body: Center(
-        child: Text('Home Page'),
-      ),
-    
+      body: _children[selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+          currentIndex: selectedIndex,
+          onTap: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          items: [
+            BottomNavigationBarItem(
+                activeIcon: Image.asset(
+                  'assets/images/home_filled.png',
+                  color: AppColors.whiteColor,
+                ),
+                icon: Image.asset(
+                  'assets/images/home_unfilled.png',
+                  color: AppColors.inactiveBottomBarItemColor,
+                ),
+                label: 'Home'),
+            BottomNavigationBarItem(
+                icon: Image.asset(
+                  'assets/images/library.png',
+                  color: selectedIndex == 1
+                      ? AppColors.whiteColor
+                      : AppColors.inactiveBottomBarItemColor,
+                ),
+                label: 'Library'),
+          ]),
     );
   }
 }
