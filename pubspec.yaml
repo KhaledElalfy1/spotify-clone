@@ -41,6 +41,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   fpdart: ^1.1.0
   http: ^1.2.2
+  just_audio: ^0.9.40
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.3.2
 
