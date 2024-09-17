@@ -5,20 +5,22 @@ import 'package:client/features/auth/presentation/controller/sign_up_cubit/sign_
 import 'package:client/features/auth/presentation/view/sign_up_view.dart';
 import 'package:client/features/home/view/pages/home_page.dart';
 import 'package:client/features/home/view/pages/upload_song_view.dart';
+import 'package:client/features/home/view/pages/widgets/music_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   static Route generateRoute(RouteSettings settings) {
+    // final argument = settings.arguments;
     switch (settings.name) {
-       case Routing.signIn:
+      case Routing.signIn:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => SignInCubit(),
             child: const SignInView(),
           ),
         );
-        
+
       case Routing.signUp:
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
@@ -27,11 +29,15 @@ class AppRouter {
           ),
         );
 
-        case Routing.uploadSong:
+      case Routing.uploadSong:
         return MaterialPageRoute(
           builder: (_) => const UploadSongView(),
         );
-     
+      case Routing.musicPlayer:
+        return MaterialPageRoute(
+          builder: (_) => const MusicPlayer(),
+        );
+
       // case '/register':
       //   return MaterialPageRoute(builder: (_) => RegisterScreen());
       // case '/profile':
