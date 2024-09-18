@@ -38,7 +38,8 @@ class MusicSlab extends ConsumerWidget {
         children: [
           Hero(
             tag: 'music-player',
-            child: Container(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
               padding: const EdgeInsets.all(10),
               height: 66,
               width: MediaQuery.sizeOf(context).width,
