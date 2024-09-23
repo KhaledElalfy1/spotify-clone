@@ -44,6 +44,7 @@ dependencies:
   hive_flutter: ^1.1.0
   http: ^1.2.2
   just_audio: ^0.9.40
+  just_audio_background: ^0.0.1-beta.13
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.3.2
 
